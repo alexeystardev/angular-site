@@ -11,5 +11,13 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
   }
+form={
+	  email:'',
+	  firstName:'',
+	  password:''
+  }
 
+  onSend(){
+	  console.log(this.form)
+  }
 }

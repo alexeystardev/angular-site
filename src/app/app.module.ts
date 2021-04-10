@@ -19,6 +19,10 @@ import { AuthGuard } from './auth/auth.guard';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { SideBarComponent } from './main/dashboard/side-bar/side-bar.component';
 import { FooterComponent } from './main/footer/footer.component';
+import { OverviewComponent } from './main/dashboard/overview/overview.component';
+import { TasksComponent } from './main/dashboard/tasks/tasks.component';
+import { AccountComponent } from './main/dashboard/account/account.component';
+import { UsersComponent } from './main/dashboard/users/users.component';
 
 
 @NgModule({
@@ -34,6 +38,10 @@ import { FooterComponent } from './main/footer/footer.component';
     DashboardComponent,
     SideBarComponent,
     FooterComponent,
+    OverviewComponent,
+    TasksComponent,
+    AccountComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
