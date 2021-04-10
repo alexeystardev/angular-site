@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { routing } from './routing';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,9 +9,17 @@ import { NavbarComponent } from './menu/navbar/navbar.component';
 import { ContactComponent } from './main/contact/contact.component';
 import { AboutComponent } from './main/about/about.component';
 import { BlogComponent } from './main/blog/blog.component';
-import { RegistrationComponent } from './main/registration/registration.component';
-import { LoginComponent } from './main/login/login.component';
+import { RegistrationComponent } from './user/registration/registration.component';
+import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './main/home/home.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule} from '@angular/fire/auth';
+import { AuthGuard } from './auth/auth.guard';
+import { DashboardComponent } from './main/dashboard/dashboard.component';
+import { SideBarComponent } from './main/dashboard/side-bar/side-bar.component';
+import { FooterComponent } from './main/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -22,15 +30,22 @@ import { HomeComponent } from './main/home/home.component';
     BlogComponent,
     RegistrationComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
+    SideBarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
 	FormsModule,
+	AngularFireAuthModule,
+	AngularFireModule,
+	ReactiveFormsModule,
     AppRoutingModule,
+	AngularFireModule.initializeApp(environment.firebase),
 	routing
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

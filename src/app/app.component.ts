@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginService } from './services/login.service';
+import { NavControlService } from './services/nav-control.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'main-project';
+  constructor( private ls:LoginService) { }
+
+ async ngOnInit(): Promise<void> {
+	await this.ls.checkIfUserLogin();
 }
+  }
