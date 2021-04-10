@@ -2,8 +2,9 @@
     <div class="row d-flex">
         <div class="col-lg-6">
             <div class="card1 pb-5">
-                <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>
-                <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+                <!-- <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div> -->
+                <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                    <img src="https://cdn.worldvectorlogo.com/logos/angular-icon.svg" width="400px" class=" image "> </div>
             </div>
         </div>
         <form class="col-lg-6" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
@@ -26,23 +27,23 @@
                 </div>
                 <div class="row px-3">
                     <label for="email" class="mb-1" [ngClass]="{'text-danger': form.get('email').invalid && form.get('email').touched}">
-            <h6 class="mb-0 text-sm">Email Address</h6>
-          </label><input formControlName="email" [ngClass]="{'bg-light': form.get('email').invalid &&
+                 <h6 class="mb-0 text-sm">Email Address</h6>
+               </label><input formControlName="email" [ngClass]="{'bg-light': form.get('email').invalid &&
 		  form.get('email').touched}" class="mb-3" type="email" name="email" placeholder="Enter a valid email address" #email>
                     <span class="pb-3 text-danger mb-3 font-weight-bold" *ngIf="form.get('email').invalid && form.get('email').touched"><span
-              *ngIf="form.get('email').errors['required']">Email cannot be empty</span>
+                   *ngIf="form.get('email').errors['required']">Email cannot be empty</span>
                     <span *ngIf="form.get('email').errors['pattern']">Email is incorrect</span>
                     </span>
                 </div>
                 <div class="row px-3"> <label class="mb-3" [ngClass]="{'text-danger': form.get('password').invalid && form.get('password').touched}">
-            <h6 class="mb-0 text-sm">Password</h6>
-          </label> <input formControlName="password" [ngClass]="{'bg-light': form.get('password').invalid &&
+                 <h6 class="mb-0 text-sm">Password</h6>
+               </label> <input formControlName="password" [ngClass]="{'bg-light': form.get('password').invalid &&
 		  form.get('password').touched}" class="mb-3" type="password" name="password" placeholder="Enter password" #password>
                     <span class="pb-3 text-danger mb-3 font-weight-bold" *ngIf="form.get('password').invalid && form.get('password').touched"><span
-              *ngIf="form.get('password').errors['required']">Password cannot be empty</span>
+                   *ngIf="form.get('password').errors['required']">Password cannot be empty</span>
                     <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">Password
-              should be minimum {{form.get('password').errors['minlength']['requiredLength']}} characters. Now is
-              {{form.get('password').errors['minlength']['actualLength']}} characters</span>
+                   should be minimum {{form.get('password').errors['minlength']['requiredLength']}} characters. Now is
+                   {{form.get('password').errors['minlength']['actualLength']}} characters</span>
                     </span>
                 </div>
                 <div class="row px-3 mb-4">
@@ -55,7 +56,8 @@
                 <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
                     {{errorMessage}}
                 </div>
-                <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a
+                <div class="row mb-4 px-3 "> <small class="font-weight-bold ">Don't have an account? <a
+                      routerLink="/registration"
               class="text-danger ">Register</a></small> </div>
             </div>
         </form>

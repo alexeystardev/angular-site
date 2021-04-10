@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
-import { NavControlService } from 'src/app/services/nav-control.service';
 
 @Component({
   selector: 'app-login',
