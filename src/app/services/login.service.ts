@@ -54,7 +54,7 @@ export class LoginService {
               } else {
                 this.user=null
 				this.navServ.hideNavBar()
-                this.router.navigate(['login'], { relativeTo: this.route });
+                this.router.navigate(['home'], { relativeTo: this.route });
                 resolve(false)
               }
             });
@@ -82,4 +82,24 @@ export class LoginService {
   logOut(){
     this.auth.signOut()
   }
+
+
+///////////////////////////////////////
+// firebaseAuth.createUserWithEmailAndPassword(userEmail,userPassword)
+//                 .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+//                     @Override
+//                     public void onComplete(@NonNull Task<AuthResult> task) {
+//                         Log.d(TAG, "New user registration: " + task.isSuccessful());
+
+//                         if (!task.isSuccessful()) {
+//                             SignupActivity.this.showToast("Authentication failed. " + task.getException());
+//                         } else {
+//                             SignupActivity.this.startActivity(new Intent(SignupActivity.this, MainActivity.class));
+//                             SignupActivity.this.finish();
+//                         }
+//                     }
+//                 });
+
+
+
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -7,17 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(public readonly auth: AngularFireAuth,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
-form={
-	  email:'',
-	  firstName:'',
-	  password:''
-  }
 
-  onSend(){
-	  console.log(this.form)
-  }
+registerUser(email,password){
+	this.auth.createUserWithEmailAndPassword(email,password)
+                .then(function(){
+alert('User Register successfully');
+	}).catch(function(error){
+let errorCode=error.code;
+let errorMsg=error.message;
+	})
 }
+}
+
+
+
+

@@ -19,6 +19,11 @@ export class NavbarComponent implements OnInit {
     })
   }
    
+  collapseBack() {
+  let miniMenu = document.getElementById("nvbCollapse");
+  miniMenu.classList.remove("show");
+}
+
    logOut(){
     this.ls.logOut()
   }
