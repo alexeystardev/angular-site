@@ -51,7 +51,6 @@
                     </div> <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
                 </div>
                 <div class="row mb-3 px-3">
-
                     <button type="submit" (click)="login(email.value,password.value)" class="btn btn-blue text-center" [disabled]="form.invalid">Login</button> </div>
                 <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
                     {{errorMessage}}

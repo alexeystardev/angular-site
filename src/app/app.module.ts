@@ -18,7 +18,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule} from '@angular/fire/auth';
 import { AuthGuard } from './auth/auth.guard';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
-import { SideBarComponent } from './main/dashboard/side-bar/side-bar.component';
+import { SideContentComponent } from './main/dashboard/side-content/side-content.component';
 import { FooterComponent } from './main/footer/footer.component';
 import { OverviewComponent } from './main/dashboard/overview/overview.component';
 import { TasksComponent } from './main/dashboard/tasks/tasks.component';
@@ -37,7 +37,7 @@ import { UsersComponent } from './main/dashboard/users/users.component';
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    SideBarComponent,
+    SideContentComponent,
     FooterComponent,
     OverviewComponent,
     TasksComponent,

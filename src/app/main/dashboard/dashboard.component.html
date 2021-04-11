@@ -7,7 +7,7 @@
                 </div>
                 <div class="profile-usertitle">
                     <div class="profile-usertitle-name">
-                        {{user}}
+                        {{userEmail}}
                     </div>
                 </div>
                 <div class="profile-userbuttons">
@@ -19,19 +19,19 @@
                 <div class="profile-usermenu">
                     <ul class="nav">
                         <li routerLinkActive="active">
-                            <a routerLink="/dashboard/overview"> 
+                            <a routerLink="/dashboard/overview">
                                 <i class=" fa fa-home" aria-hidden="true"></i> Overview </a>
                         </li>
                         <li routerLinkActive="active">
-                            <a routerLink="/dashboard/account"> 
+                            <a routerLink="/dashboard/account">
                                 <i class="fa fa-user" aria-hidden="true "></i> Account</a>
                         </li>
                         <li routerLinkActive="active">
-                            <a routerLink="/dashboard/tasks"> 
+                            <a routerLink="/dashboard/tasks">
                                 <i class="fa fa-tasks" aria-hidden="true "></i> Tasks </a>
                         </li>
                         <li routerLinkActive="active">
-                            <a routerLink="/dashboard/users"> 
+                            <a routerLink="/dashboard/users">
                                 <i class="fa fa-question-circle" aria-hidden="true "></i> Users </a>
                         </li>
                     </ul>
@@ -43,7 +43,7 @@
                 <h1 class="dashStyle">Dashboard Panel</h1>
             </div>
             <hr>
-            <app-side-bar></app-side-bar>
+            <app-side-content></app-side-content>
         </div>
     </div>
 </div>

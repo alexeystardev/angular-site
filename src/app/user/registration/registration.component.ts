@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RegisterService } from 'src/app/services/register.service';
+
 
 @Component({
   selector: 'app-registration',
@@ -9,21 +10,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(public readonly auth: AngularFireAuth,
-    private route: ActivatedRoute,
-    private router: Router) { }
+	form: FormGroup
+
+  constructor(private regServ: RegisterService) { }
 
   ngOnInit(): void {
+	  this.form = new FormGroup({
+		  email: new FormControl(null, [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
+		  name: new FormControl(null, [Validators.required, Validators.minLength(2),Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$')]),
+		  password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+		//   checkbox: new FormControl(false, Validators.requiredTrue)
+	  })
   }
 
+		onSubmit(form){
+			// console.log(form)
+		}
+
+
+  errorMessage=''
+
 registerUser(email,password){
-	this.auth.createUserWithEmailAndPassword(email,password)
-                .then(function(){
-alert('User Register successfully');
-	}).catch(function(error){
-let errorCode=error.code;
-let errorMsg=error.message;
-	})
+	this.regServ.createUserWithEmailAndPassword(email,password).catch((err)=>{
+      this.errorMessage=err
+    })
 }
 }
 
