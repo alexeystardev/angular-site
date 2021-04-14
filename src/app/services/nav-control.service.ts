@@ -19,4 +19,5 @@ export class NavControlService {
   showNavBar(){
     this.showNavbar.next(true)
   }
+
 }

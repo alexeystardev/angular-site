@@ -24,6 +24,7 @@ import { OverviewComponent } from './main/dashboard/overview/overview.component'
 import { TasksComponent } from './main/dashboard/tasks/tasks.component';
 import { AccountComponent } from './main/dashboard/account/account.component';
 import { UsersComponent } from './main/dashboard/users/users.component';
+import { OnLoadContentComponent } from './main/dashboard/on-load-content/on-load-content.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { UsersComponent } from './main/dashboard/users/users.component';
     OverviewComponent,
     TasksComponent,
     AccountComponent,
-    UsersComponent
+    UsersComponent,
+    OnLoadContentComponent
   ],
   imports: [
     BrowserModule,

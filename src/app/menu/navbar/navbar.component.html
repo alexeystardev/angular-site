@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="/"><img src="http://ec30.org/wp-content/uploads/2017/01/AngularShieldLogo.png" width="180px"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse" >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
       <span class="navbar-toggler-icon">
         <i class="fa fa-bars" style="color:#fff; font-size:28px;"></i>
       </span>
@@ -25,14 +25,15 @@
                 <li *ngIf="navBarStatus? false : true" class="nav-item pl-1" routerLinkActive="active">
                     <a class="nav-link" routerLink="/registration"><i class="fa fa-user-plus fa-fw mr-1"></i>Registration</a>
                 </li>
-                <li *ngIf="navBarStatus? false : true" class=" nav-item pl-1 " routerLinkActive="active ">
+                <li *ngIf="navBarStatus? false : true" class=" nav-item pl-1 " routerLinkActive="active">
                     <a class="nav-link " routerLink="/login"><i class="fa fa-sign-in fa-fw mr-1 "></i>Login</a>
                 </li>
                 <li *ngIf="navBarStatus" class=" nav-item pl-1 " routerLinkActive="active ">
-                    <a class="nav-link " routerLink="/dashboard"><i class="fa fa-address-card mr-1 "></i>Dashboard</a>
+                    <a class=" nav-link " routerLink="/dashboard"><i
+                        class="fa fa-address-card mr-1 "></i>Dashboard</a>
                 </li>
-                <li *ngIf="navBarStatus" class=" nav-item pl-1 " routerLinkActive="active ">
-                    <a (click)="logOut() " class=" nav-link" routerLink="/login"><i
+                <li *ngIf="navBarStatus " class=" nav-item pl-1 " routerLinkActive="active ">
+                    <a (click)="logOut() " class=" nav-link " routerLink="/login"><i
                         class="fa fa-sign-in fa-fw mr-1 "></i>Log Out</a>
                 </li>
             </ul>

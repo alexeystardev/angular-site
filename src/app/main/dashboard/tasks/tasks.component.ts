@@ -58,7 +58,7 @@ updateDataToFirebase(){
 }
 
 getDataToFirebase(){
-  this.db.firestore.collection("cities").where("state", "==", "CA").where("population", ">", 10000)
+  this.db.firestore.collection("cities").where("state", "==", "CA").where("population", "<", 1000000)
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
