@@ -33,7 +33,12 @@ onSubmit(){
 
   save(){
     console.log(this.form)
-    this.ds.addCustomer(this.form)
+	if(!this.form.email || !this.form.firstName  || !this.form.phoneNumber  || !this.form.lastName  || !this.form.notes  || !this.form.address){
+		return alert('Please fill all fields!') // временное решение!!!! :(
+	}else {
+		this.ds.addCustomer(this.form)
 	this.router.navigate(['../customers'], { relativeTo: this.route });
+	}
+    
   }
 }

@@ -1,3 +1,7 @@
 .actionButtons {
     cursor: pointer;
 }
+
+.customerFieldWrap {
+    width: 200px;
+}
