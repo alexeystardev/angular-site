@@ -23,8 +23,10 @@ import { FooterComponent } from './main/footer/footer.component';
 import { OverviewComponent } from './main/dashboard/overview/overview.component';
 import { TasksComponent } from './main/dashboard/tasks/tasks.component';
 import { AccountComponent } from './main/dashboard/account/account.component';
-import { UsersComponent } from './main/dashboard/users/users.component';
 import { OnLoadContentComponent } from './main/dashboard/on-load-content/on-load-content.component';
+import { CustomersComponent } from './main/dashboard/customers/customers.component';
+import { CustomersService } from './services/customers.service';
+import { AddcustomersComponent } from './main/dashboard/addcustomers/addcustomers.component';
 
 
 @NgModule({
@@ -43,8 +45,9 @@ import { OnLoadContentComponent } from './main/dashboard/on-load-content/on-load
     OverviewComponent,
     TasksComponent,
     AccountComponent,
-    UsersComponent,
-    OnLoadContentComponent
+    OnLoadContentComponent,
+    CustomersComponent,
+    AddcustomersComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,7 @@ import { OnLoadContentComponent } from './main/dashboard/on-load-content/on-load
 	AngularFirestoreModule,
 	routing
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, CustomersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

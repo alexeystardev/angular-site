@@ -10,7 +10,8 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { OverviewComponent } from './main/dashboard/overview/overview.component';
 import { TasksComponent } from './main/dashboard/tasks/tasks.component';
 import { AccountComponent } from './main/dashboard/account/account.component';
-import { UsersComponent } from './main/dashboard/users/users.component';
+import { CustomersComponent } from './main/dashboard/customers/customers.component';
+import { AddcustomersComponent } from './main/dashboard/addcustomers/addcustomers.component';
 
 
 const arr: Routes = [
@@ -37,8 +38,12 @@ const arr: Routes = [
                 component: AccountComponent
             },
 			 {
-                path: 'users',
-                component: UsersComponent
+                path: 'customers',
+                component: CustomersComponent
+            },
+			 {
+                path: 'addcustomers',
+                component: AddcustomersComponent
             }
         ]},
 ];

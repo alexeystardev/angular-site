@@ -19,11 +19,11 @@ createUserWithEmailAndPassword(email: string, password: string){
     return new Promise(async (resolve, reject) => {
       this.auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-		  alert("Now you can Login! Please don't forget your password!")
-		  this.unLogin.logOut();
-		 setTimeout(() => {
-			  this.router.navigate(['/login'], { relativeTo: this.route });
-		 }, 1000);
+		//   alert("Now you can Login! Please don't forget your password!")
+		//   this.unLogin.logOut();
+		//  setTimeout(() => {
+			  this.router.navigate(['/dashboard'], { relativeTo: this.route });
+		//  }, 1000);
        
       })
       .catch((error) => {

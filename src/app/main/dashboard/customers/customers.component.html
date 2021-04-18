@@ -1,0 +1,67 @@
+<table class="table table-borderless table-responsive card-1 p-4">
+    <thead>
+        <tr class="border-bottom">
+            <th> <span class="ml-2">#</span> </th>
+            <th> <span class="ml-2">Customer</span> </th>
+            <th> <span class="ml-2">Email</span> </th>
+            <th> <span class="ml-2">Phone</span> </th>
+            <th> <span class="ml-2">Address</span> </th>
+            <th> <span class="ml-2">Notes</span> </th>
+            <th> <span class="ml-4">Action</span> </th>
+        </tr>
+    </thead>
+    <tbody *ngIf=" customers?.length> 0 ;else noCustomers">
+        <tr *ngFor=" let customer of customers;let i=index" class="border-bottom">
+            <td>
+                <div class="p-2"> <span class="d-block font-weight-bold" title="User ID -> `{{customer.id}}`">{{i+1}}</span>
+                </div>
+            </td>
+            <td>
+                <div class="d-flex flex-row align-items-center mb-2"><i class="fas fa-user text-primary fa-2x"></i>
+                    <div class="p-2"> <span class="font-weight-bold ">
+              {{customer.firstName}} {{customer.lastName}}</span></div>
+                </div>
+            </td>
+            <td>
+                <div class="p-2"> <span class="font-weight-bold ">{{customer.email}}</span> </div>
+            </td>
+            <td>
+                <div class="p-2"> <span class="font-weight-bold ">{{customer.phoneNumber}}</span>
+                </div>
+            </td>
+            <td>
+                <div class="p-2 d-flex flex-column"> <span>{{customer.address}}</span> </div>
+            </td>
+            <td>
+                <div class="p-2 d-flex flex-column border bg-info text-white rounded"> <span>
+            {{customer.notes}}</span> </div>
+            </td>
+            <td>
+                <div class="p-3 icons d-flex justify-content-between"> <i class="fa fa-phone fa-lg text-success actionButtons"></i>
+                    <i class="px-3 fa fa-pencil-square-o text-primary fa-lg actionButtons"></i><i class="fa fa-trash fa-lg text-danger actionButtons"></i>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<!-- <div *ngIf="customers?.length> 0 ;else noCustomers">
+                        <ul *ngFor=" let customer of customers " class="collection">
+                            <li class="collection-item ">
+                                {{customer.id}}
+                            </li>
+                            <li class="collection-item ">
+                                {{customer.firstName}}{{customer.lastName}}
+                            </li>
+                            <li class="collection-item ">
+                                {{customer.email}}
+                            </li>
+                        </ul>
+                    </div> -->
+
+<ng-template #noCustomers>
+    <hr>
+    <h5>Loading....</h5>
+</ng-template>

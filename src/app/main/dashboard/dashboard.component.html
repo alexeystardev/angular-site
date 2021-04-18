@@ -1,4 +1,4 @@
-<div class="container-fluid bootstrap snippets bootdey">
+<div class="container-fluid bootstrap snippets bootdey mb-5">
     <div class="row profile">
         <div class="col-md-2" id="profileCol">
             <div class="profile-sidebar">
@@ -22,17 +22,19 @@
                             <a routerLink="/dashboard/overview">
                                 <i class=" fa fa-home" aria-hidden="true"></i> Overview </a>
                         </li>
-                        <li routerLinkActive="active">
+                        <!-- <li routerLinkActive="active">
                             <a routerLink="/dashboard/account">
                                 <i class="fa fa-user" aria-hidden="true "></i> Account</a>
+                        </li> -->
+
+
+                        <li routerLinkActive="active">
+                            <a routerLink="/dashboard/customers">
+                                <i class="fa fa-users" aria-hidden="true "></i> Customers </a>
                         </li>
                         <li routerLinkActive="active">
-                            <a routerLink="/dashboard/tasks">
-                                <i class="fa fa-tasks" aria-hidden="true "></i> Tasks </a>
-                        </li>
-                        <li routerLinkActive="active">
-                            <a routerLink="/dashboard/users">
-                                <i class="fa fa-question-circle" aria-hidden="true "></i> Users </a>
+                            <a routerLink="/dashboard/addcustomers">
+                                <i class="fa fa-user-plus" aria-hidden="true "></i> Add Customers </a>
                         </li>
                     </ul>
                 </div>
@@ -40,7 +42,7 @@
         </div>
         <div class="col-md-9 " id="contentCol ">
             <div class="container text-center">
-                <h1 class="dashStyle">Dashboard Panel</h1>
+                <h1 class="dashStyle">CRM System</h1>
             </div>
             <hr>
             <app-side-content></app-side-content>
