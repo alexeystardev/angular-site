@@ -10,6 +10,7 @@ import { CustomerList } from '../../../models/customerList.model';
 export class CustomersComponent implements OnInit {
 	customers: CustomerList[];
 
+	
   constructor(private custServ: CustomersService) { }
 
   ngOnInit(): void {
@@ -20,4 +21,7 @@ export class CustomersComponent implements OnInit {
 	 });
   }
 
+deleteCustomer(event, customer){
+	this.custServ.deleteCustomer(customer);
+}
 }

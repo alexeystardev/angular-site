@@ -27,6 +27,7 @@ import { OnLoadContentComponent } from './main/dashboard/on-load-content/on-load
 import { CustomersComponent } from './main/dashboard/customers/customers.component';
 import { CustomersService } from './services/customers.service';
 import { AddcustomersComponent } from './main/dashboard/addcustomers/addcustomers.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { AddcustomersComponent } from './main/dashboard/addcustomers/addcustomer
     AppRoutingModule,
 	AngularFireModule.initializeApp(environment.firebase),
 	AngularFirestoreModule,
-	routing
+	routing,
+ NgbModule
   ],
   providers: [AuthGuard, CustomersService],
   bootstrap: [AppComponent]

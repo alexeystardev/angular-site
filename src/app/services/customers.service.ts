@@ -10,6 +10,7 @@ import { CustomerList } from '../models/customerList.model';
 export class CustomersService {
 customersCollection: AngularFirestoreCollection<CustomerList>;
 customers: Observable<CustomerList[]>;
+customerDoc: AngularFirestoreDocument<any>
 
 
   constructor(public afs: AngularFirestore) { 
@@ -18,6 +19,11 @@ customers: Observable<CustomerList[]>;
 
   getCustomersList(){
 	  return this.customers;
+  }
+
+  deleteCustomer(customer: any){
+	this.customerDoc = this.afs.doc(`customers/${customer.id}`);
+	this.customerDoc.delete();
   }
 
 }
