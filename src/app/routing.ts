@@ -44,7 +44,11 @@ const arr: Routes = [
 			 {
                 path: 'addcustomers',
                 component: AddcustomersComponent
-            }
+            },
+			 {
+          path: 'customers/:id',
+          component: AddcustomersComponent, // another child route component that the router renders
+        },
         ]},
 ];
 

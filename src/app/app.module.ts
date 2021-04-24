@@ -28,6 +28,9 @@ import { CustomersComponent } from './main/dashboard/customers/customers.compone
 import { CustomersService } from './services/customers.service';
 import { AddcustomersComponent } from './main/dashboard/addcustomers/addcustomers.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SpinnerComponent } from './main/alertsAndSpinners/spinner/spinner.component';
+import { ShowCustomerComponent } from './main/dashboard/customers/show-customer/show-customer.component';
+import { SearchPipe } from './main/search/search.pipe';
 
 
 @NgModule({
@@ -48,7 +51,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AccountComponent,
     OnLoadContentComponent,
     CustomersComponent,
-    AddcustomersComponent
+    AddcustomersComponent,
+    SpinnerComponent,
+    ShowCustomerComponent,
+	SearchPipe
   ],
   imports: [
     BrowserModule,

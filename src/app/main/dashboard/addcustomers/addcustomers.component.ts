@@ -3,6 +3,7 @@ import { Customer } from 'src/app/models/customer.model';
 import { DbServiceService } from 'src/app/services/db.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SpinnerService } from 'src/app/services/spinner.service';
 
 @Component({
   selector: 'app-addcustomers',
@@ -13,32 +14,58 @@ export class AddcustomersComponent implements OnInit {
    
 	valForm: FormGroup
 
-  constructor(private ds:DbServiceService, private router: Router, private route: ActivatedRoute ) {
+  constructor(private ds:DbServiceService,private spinner:SpinnerService,
+    private route: ActivatedRoute, private spinnerService:SpinnerService) {
    }
 
    form:Customer=new Customer()
- 
+   id: string;
+   private sub: any;
+   customer:Customer
+   addOrEditCustomer:string="Add customer"
 
   ngOnInit(): void {
-    console.log(this.form)
+    this.sub = this.route.params.subscribe(params => {
+     
+      if (params['id']){
+        this.id = params['id'];
+        this.getCustomer(this.id)
+      }
+  
+   });
 
-	//  this.valForm = new FormGroup({
-	// 	  email: new FormControl(null, [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
-	// 	//   password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
-	//   })
   }
-onSubmit(){
-			// console.log(form)
-		}
+
+  async getCustomer(id: string){
+
+    try {
+      this.spinnerService.showOrHideSpinner(true)
+      const customer = await  this.ds.getCustomer(id)
+      this.spinnerService.showOrHideSpinner(false)
+      if (customer){
+        this.form = customer
+        this.addOrEditCustomer="Edit customer"
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   save(){
-    console.log(this.form)
-	if(!this.form.email || !this.form.firstName  || !this.form.phoneNumber  || !this.form.lastName  || !this.form.notes  || !this.form.address){
-		return alert('Please fill all fields!') // временное решение!!!! :(
-	}else {
-		this.ds.addCustomer(this.form)
-	this.router.navigate(['../customers'], { relativeTo: this.route });
-	}
-    
+    this.spinner.showOrHideSpinner(true)
+    this.ds.addCustomer(this.form).then((docRef) => {
+      this.spinner.showOrHideSpinner(false)
+      this.form=new Customer()
+      // this.router.navigate(['../'], { relativeTo: this.route });
+    })
+    .catch((error) => {
+        this.spinner.showOrHideSpinner(false)
+        console.error("Error adding document: ", error);
+    });
   }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
 }

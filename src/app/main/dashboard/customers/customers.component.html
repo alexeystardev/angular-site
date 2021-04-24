@@ -40,22 +40,32 @@
     <option [ngValue]="6">6 items per page</option>
   </select>
 </div> -->
+<div class="input-group col col-lg-5">
+    <input type="text" class="form-control bg-light border small shadow" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="searchStr">
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button">
+      <i class="fas fa-search fa-sm"></i>
+    </button>
+    </div>
+</div>
 
 
-<table class="table table-borderless table-responsive card-1">
-    <thead>
-        <tr class="border-bottom">
-            <th> <span class="ml-2">#</span> </th>
-            <th> <span class="ml-2">Customer</span> </th>
-            <th> <span class="ml-2">Email</span> </th>
-            <th> <span class="ml-2">Phone</span> </th>
-            <th> <span class="ml-2">Address</span> </th>
-            <!-- <th> <span class="ml-2">Notes</span> </th> -->
-            <th> <span class="ml-4">Action</span> </th>
+<table class="table  table-hover table-responsive card-1 mt-3 rounded-top">
+
+    <thead class="thead-dark">
+        <tr>
+            <th> <span class="ml-2 ">#</span> </th>
+            <th> <span class="ml-2 ">Customer</span> </th>
+            <th> <span class="ml-2 ">Email</span> </th>
+            <th> <span class="ml-2 ">Phone</span> </th>
+            <th> <span class="ml-2 ">Address</span> </th>
+            <!-- <th> <span class="ml-2 ">Notes</span> </th> -->
+            <th> <span class="ml-4 ">Action</span> </th>
         </tr>
     </thead>
+    <!-- <tbody *ngIf=" customers?.length> 0 ;else noCustomers"> -->
     <tbody *ngIf=" customers?.length> 0 ;else noCustomers">
-        <tr *ngFor=" let customer of customers;let i=index" class="border-bottom">
+        <tr *ngFor=" let customer of customers | search:searchStr; let i=index" class="border-bottom">
             <td>
                 <div class="px-2"> <span class="d-block font-weight-bold" title="User ID -> `{{customer.id}}`">{{i+1}}</span>
                 </div>
@@ -83,9 +93,11 @@
             {{customer.notes}}</span> </div>
             </td> -->
             <td>
-                <div class="p-3 icons d-flex justify-content-between"> <i class="fa fa-phone fa-lg text-success actionButtons">
-          </i>
-                    <i class="px-3 fa fa-pencil-square-o text-primary fa-lg actionButtons"></i><i (click)=" deleteCustomer($event, customer)" class="fa fa-trash fa-lg text-danger actionButtons "></i>
+                <div class="p-3 icons d-flex justify-content-between">
+                    <a href="tel:{{customer.phoneNumber}}"><i
+                            class="fa fa-phone fa-lg text-success actionButtons ">
+                            </i></a>
+                    <a> <i (click)="showCustomer($event, customer)" class="px-3 fa fa-pencil-square-o text-primary fa-lg actionButtons "></i><i (click)="remove($event, customer)" class="fa fa-user-times fa-lg text-danger actionButtons "></i></a>
                 </div>
             </td>
         </tr>
@@ -94,22 +106,25 @@
 
 
 
-
 <!-- <div *ngIf="customers?.length> 0 ;else noCustomers">
-                    <ul *ngFor=" let customer of customers " class="collection">
-                        <li class="collection-item ">
-                            {{customer.id}}
-                        </li>
-                        <li class="collection-item ">
-                            {{customer.firstName}}{{customer.lastName}}
-                        </li>
-                        <li class="collection-item ">
-                            {{customer.email}}
-                        </li>
-                    </ul>
-                </div> -->
+                        <ul *ngFor=" let customer of customers " class="collection">
+                            <li class="collection-item ">
+                                {{customer.id}}
+                            </li>
+                            <li class="collection-item ">
+                                {{customer.firstName}}{{customer.lastName}}
+                            </li>
+                            <li class="collection-item ">
+                                {{customer.email}}
+                            </li>
+                        </ul>
+                    </div> -->
 
 <ng-template #noCustomers>
     <hr>
-    <h5>Loading....</h5>
+    <!-- <h5>Loading....</h5> -->
+    <div class="spinner-border text-warning" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+
 </ng-template>
